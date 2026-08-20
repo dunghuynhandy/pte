@@ -801,16 +801,4 @@ Tuần 7–8:  Tinh chỉnh + mock test lần 3
 
 ---
 
-## Phụ lục: Checklist trước ngày thi
-
-- [ ] Đã luyện đủ **22 dạng câu** (kể cả 2 dạng mới 2025)
-- [ ] Đã làm ít nhất **2 Scored Practice Tests**
-- [ ] Biết rõ **target score** và điểm từng kỹ năng cần đạt
-- [ ] Có **template** cho Speaking và Writing
-- [ ] Luyện **Write from Dictation** hàng ngày (1 tuần cuối)
-- [ ] Biết **quy tắc chấm điểm** (partial credit, penalty)
-- [ ] Đã check **yêu cầu** trường/visa cụ thể
-
----
-
 *Tài liệu compiled từ thông tin chính thức Pearson PTE (2025). Luôn kiểm tra [pearsonpte.com](https://www.pearsonpte.com/) để cập nhật mới nhất.*
