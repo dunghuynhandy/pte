@@ -1,17 +1,20 @@
 #!/usr/bin/env python3
-"""Build static HTML site from PTE-HOC-TAP.md for GitHub Pages."""
+"""Build static HTML site from PTE markdown for GitHub Pages."""
 
 import os
 import re
 import shutil
 
 import markdown
+from markdown.extensions.attr_list import AttrListExtension
 from markdown.extensions.fenced_code import FencedCodeExtension
 from markdown.extensions.tables import TableExtension
 from markdown.extensions.toc import TocExtension
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 SOURCE_MD = os.path.join(BASE, "PTE-HOC-TAP.md")
+SOURCE_TIPS = os.path.join(BASE, "PTE-TIPS.md")
+SOURCE_TEMPLATES = os.path.join(BASE, "PTE-TEMPLATES.md")
 DOCS = os.path.join(BASE, "docs")
 SITE_ASSETS = os.path.join(BASE, "site", "assets")
 PERSONAL_SITE = os.path.abspath(
@@ -33,6 +36,7 @@ MD = markdown.Markdown(
     extensions=[
         TableExtension(),
         FencedCodeExtension(),
+        AttrListExtension(),
         TocExtension(marker="", slugify=slugify),
     ]
 )
@@ -47,6 +51,8 @@ def page(title: str, body: str, active: str = "") -> str:
     nav = [
         ("home", "Home", "index.html"),
         ("summary", "Study Guide", "summary.html"),
+        ("tips", "Tips", "tips.html"),
+        ("templates", "Templates", "templates.html"),
     ]
     nav_html = "".join(
         f'<a href="{href}" class="{"active" if key == active else ""}">{label}</a>'
@@ -81,38 +87,44 @@ def write(path: str, content: str) -> None:
         f.write(content)
 
 
+def build_md_page(source: str, breadcrumb: str, active: str, out_name: str) -> None:
+    with open(source, encoding="utf-8") as f:
+        content = f.read()
+    html = md_to_html(content)
+    body = f"""
+  <div class="breadcrumb"><a href="index.html">Home</a> / {breadcrumb}</div>
+  <div class="content">{html}</div>
+"""
+    title = breadcrumb.split(" / ")[-1] if " / " in breadcrumb else breadcrumb
+    write(os.path.join(DOCS, out_name), page(title, body, active=active))
+
+
 def build_index() -> None:
     body = """
   <section class="hero">
     <h1>PTE Academic Study Hub</h1>
     <p>Tài liệu học PTE Academic — 22 dạng câu, chấm điểm, quy đổi IELTS, visa Úc, chiến lược ôn thi (cập nhật 2025).</p>
     <div class="hero-actions">
-      <a class="btn btn-primary" href="summary.html">Open Study Guide</a>
-      <a class="btn btn-secondary" href="https://github.com/dunghuynhandy/pte">GitHub Repo</a>
+      <a class="btn btn-primary" href="summary.html">Study Guide</a>
+      <a class="btn btn-secondary" href="tips.html">Tips</a>
+      <a class="btn btn-secondary" href="templates.html">Templates</a>
     </div>
   </section>
-  <h2 class="section-title">Contents</h2>
+  <h2 class="section-title">Pages</h2>
   <div class="card-grid">
-    <a class="card" href="summary.html#1-tổng-quan"><h3>Tổng quan</h3><p>Format, thời lượng, thang điểm 10–90</p></a>
+    <a class="card" href="summary.html"><h3>Study Guide</h3><p>22 dạng câu · chấm điểm · visa · quy đổi IELTS</p></a>
+    <a class="card" href="tips.html"><h3>Tips</h3><p>Mẹo từng dạng câu · ngày thi · lỗi thường gặp</p></a>
+    <a class="card" href="templates.html"><h3>Templates</h3><p>DI · RL · Essay · SWT · SST · SGD · RTS</p></a>
+  </div>
+  <h2 class="section-title">Quick links</h2>
+  <div class="card-grid">
     <a class="card" href="summary.html#2-cấu-trúc-bài-thi"><h3>Cấu trúc bài thi</h3><p>3 phần · 22 dạng câu</p></a>
-    <a class="card" href="summary.html#8-quy-đổi-điểm-pte--ielts"><h3>PTE ↔ IELTS</h3><p>Bảng quy đổi chính thức 2025</p></a>
-    <a class="card" href="summary.html#9-yêu-cầu-visa--du-học-phổ-biến"><h3>Visa Úc</h3><p>Competent 50 · Proficient 65 · Superior 79</p></a>
-    <a class="card" href="summary.html#10-chiến-lược-học--làm-bài"><h3>Chiến lược học</h3><p>Lộ trình 4–8 tuần + templates</p></a>
-    <a class="card" href="summary.html#12-tài-nguyên-luyện-tập"><h3>Tài nguyên</h3><p>Pearson, ApeUni, AlfaPTE...</p></a>
+    <a class="card" href="summary.html#9-yêu-cầu-visa--du-học-phổ-biến"><h3>Visa Úc</h3><p>50 · 65 · 79</p></a>
+    <a class="card" href="tips.html#listening"><h3>Listening Tips</h3><p>WFD · SST · ghi chú khi nghe</p></a>
+    <a class="card" href="tips.html#mẹo-ngày-thi"><h3>Ngày thi</h3><p>Checklist nhanh</p></a>
   </div>
 """
     write(os.path.join(DOCS, "index.html"), page("Home", body, active="home"))
-
-
-def build_summary() -> None:
-    with open(SOURCE_MD, encoding="utf-8") as f:
-        content = f.read()
-    html = md_to_html(content)
-    body = f"""
-  <div class="breadcrumb"><a href="index.html">Home</a> / Study Guide</div>
-  <div class="content">{html}</div>
-"""
-    write(os.path.join(DOCS, "summary.html"), page("Study Guide", body, active="summary"))
 
 
 def deploy_personal_site() -> None:
@@ -134,12 +146,16 @@ def main() -> None:
     open(os.path.join(DOCS, ".nojekyll"), "w").close()
 
     build_index()
-    build_summary()
+    build_md_page(SOURCE_MD, "Study Guide", "summary", "summary.html")
+    build_md_page(SOURCE_TIPS, "Tips", "tips", "tips.html")
+    build_md_page(SOURCE_TEMPLATES, "Templates", "templates", "templates.html")
     deploy_personal_site()
 
     print(f"Built site in {DOCS}")
-    print("Live URL:  https://dunghuynhandy.github.io/pte/")
-    print("Summary:   https://dunghuynhandy.github.io/pte/summary.html")
+    print("Live URL:   https://dunghuynhandy.github.io/pte/")
+    print("Summary:    https://dunghuynhandy.github.io/pte/summary.html")
+    print("Tips:       https://dunghuynhandy.github.io/pte/tips.html")
+    print("Templates:  https://dunghuynhandy.github.io/pte/templates.html")
 
 
 if __name__ == "__main__":

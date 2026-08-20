@@ -8,13 +8,19 @@ Tài liệu học PTE Academic: 22 dạng câu, chấm điểm, quy đổi IELTS
 
 Summary: **https://dunghuynhandy.github.io/pte/summary.html**
 
+Tips: **https://dunghuynhandy.github.io/pte/tips.html**
+
+Templates: **https://dunghuynhandy.github.io/pte/templates.html**
+
 The site is deployed to your personal GitHub Pages repo (`dunghuynhandy.github.io/pte/`). Running `build_site.py` copies the built HTML there automatically.
 
 ## Contents
 
 | File / Folder | Description |
 |---------------|-------------|
-| `PTE-HOC-TAP.md` | Source markdown (12 sections) |
+| `PTE-HOC-TAP.md` | Source markdown — full study guide (12 sections) |
+| `PTE-TIPS.md` | Tips per task type, exam day, common mistakes |
+| `PTE-TEMPLATES.md` | Speaking & writing templates |
 | `docs/` | Generated static website (GitHub Pages) |
 | `site/assets/` | CSS styles |
 
@@ -25,7 +31,7 @@ pip3 install -r requirements.txt
 python3 build_site.py
 ```
 
-This regenerates all HTML in `docs/` from `PTE-HOC-TAP.md`.
+This regenerates all HTML in `docs/` from the markdown files.
 
 ## Enable GitHub Pages (pte repo)
 
