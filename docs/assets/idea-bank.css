@@ -150,6 +150,38 @@
   line-height: 1.65;
 }
 
+.idea-bank-essay {
+  margin-top: 2rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  box-shadow: var(--shadow);
+}
+
+.idea-bank-essay h2 {
+  margin: 0 0 0.35rem;
+  font-size: 1.15rem;
+}
+
+.idea-bank-essay .essay-prompt {
+  margin: 0 0 1.25rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-style: italic;
+}
+
+.idea-bank-essay p {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: #374151;
+}
+
+.idea-bank-essay p:last-child {
+  margin-bottom: 0;
+}
+
 @media (max-width: 820px) {
   .idea-bank-columns,
   .idea-bank-divider,
