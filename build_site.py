@@ -62,7 +62,10 @@ def build_idea_banks() -> None:
         return
     if os.path.exists(dst):
         shutil.rmtree(dst)
-    shutil.copytree(src, dst, ignore=shutil.ignore_patterns("index.html"))
+    shutil.copytree(src, dst)
+    root_index = os.path.join(dst, "index.html")
+    if os.path.exists(root_index):
+        os.remove(root_index)
     print(f"Built idea banks in {dst}")
 
 
