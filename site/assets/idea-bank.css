@@ -1,0 +1,165 @@
+/* Idea bank infographic pages */
+.idea-bank-page main {
+  max-width: 1100px;
+}
+
+.idea-bank {
+  background: #f3f1ed;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 2rem 1.5rem;
+  box-shadow: var(--shadow);
+}
+
+.idea-bank-header h1 {
+  margin: 0 0 0.75rem;
+  font-size: clamp(1.6rem, 3vw, 2rem);
+  letter-spacing: -0.02em;
+}
+
+.idea-bank-header .lede {
+  margin: 0;
+  color: #4b5563;
+  font-size: 1.02rem;
+  line-height: 1.7;
+  max-width: 920px;
+}
+
+.idea-bank-divider {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  margin: 1.75rem 0 1.25rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.idea-bank-divider span:first-child { color: #1f6b5c; }
+.idea-bank-divider span:last-child { color: #7a2844; text-align: right; }
+
+.idea-bank-divider-bars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  height: 4px;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 1.25rem;
+}
+
+.idea-bank-divider-bars .pro { background: #1f6b5c; }
+.idea-bank-divider-bars .con { background: #7a2844; }
+
+.idea-bank-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.idea-bank-col {
+  background: #fff;
+  border: 1px solid #e7e2da;
+  border-radius: 14px;
+  padding: 1.25rem 1.35rem 1rem;
+}
+
+.idea-bank-col.pro { border-top: 4px solid #1f6b5c; }
+.idea-bank-col.con { border-top: 4px solid #7a2844; }
+
+.idea-bank-col-title {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.idea-bank-col.pro .idea-bank-col-title { color: #1f6b5c; }
+.idea-bank-col.con .idea-bank-col-title { color: #7a2844; }
+
+.idea-bank-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+
+.idea-bank-badge.pro { background: #1f6b5c; }
+.idea-bank-badge.con { background: #7a2844; }
+
+.idea-bank-section {
+  padding: 0.85rem 0;
+  border-top: 1px solid #ece7df;
+}
+
+.idea-bank-section:first-of-type { border-top: none; padding-top: 0; }
+
+.idea-bank-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 0.45rem;
+  font-size: 0.98rem;
+  color: var(--text);
+}
+
+.idea-bank-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.idea-bank-col.pro .idea-bank-icon {
+  background: #e8f3ef;
+  color: #1f6b5c;
+}
+
+.idea-bank-col.con .idea-bank-icon {
+  background: #f8ecef;
+  color: #7a2844;
+}
+
+.idea-bank-section ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: #374151;
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.idea-bank-section li { margin: 0.28rem 0; }
+
+.idea-bank-footer {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e7e2da;
+  color: #4b5563;
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 820px) {
+  .idea-bank-columns,
+  .idea-bank-divider,
+  .idea-bank-divider-bars {
+    grid-template-columns: 1fr;
+  }
+
+  .idea-bank-divider span:last-child { text-align: left; }
+
+  .idea-bank {
+    padding: 1.25rem;
+  }
+}
