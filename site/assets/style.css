@@ -180,6 +180,27 @@ main {
   border-bottom: 2px solid var(--accent-soft);
 }
 
+.category-block {
+  margin-top: 2rem;
+}
+
+.category-block:first-of-type {
+  margin-top: 1.5rem;
+}
+
+.category-label {
+  margin: 0 0 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.category-block .card-grid {
+  margin-top: 0;
+}
+
 .content {
   background: var(--surface);
   border: 1px solid var(--border);
