@@ -33,6 +33,10 @@ def build_index() -> None:
       <h3>University Education</h3>
       <p>Careers · skills · access vs trades · debt · dropouts · workforce gaps</p>
     </a>
+    <a class="card" href="idea_bank/homework/index.html">
+      <h3>Homework</h3>
+      <p>Practice · discipline · exams vs stress · balance · inequality · busy work</p>
+    </a>
   </div>
 """
     html = f"""<!DOCTYPE html>
@@ -87,6 +91,7 @@ def main() -> None:
     print("Live URL:   https://dunghuynhandy.github.io/pte/")
     print("Remote Ed:  https://dunghuynhandy.github.io/pte/idea_bank/remote_education/")
     print("University:   https://dunghuynhandy.github.io/pte/idea_bank/university_education/")
+    print("Homework:     https://dunghuynhandy.github.io/pte/idea_bank/homework/")
 
 
 if __name__ == "__main__":
