@@ -29,6 +29,10 @@ def build_index() -> None:
       <h3>Remote Education</h3>
       <p>Flexibility · cost · access vs social · motivation · tech · cheating</p>
     </a>
+    <a class="card" href="idea_bank/university_education/index.html">
+      <h3>University Education</h3>
+      <p>Careers · skills · access vs trades · debt · dropouts · workforce gaps</p>
+    </a>
   </div>
 """
     html = f"""<!DOCTYPE html>
@@ -82,6 +86,7 @@ def main() -> None:
     print(f"Built site in {DOCS}")
     print("Live URL:   https://dunghuynhandy.github.io/pte/")
     print("Remote Ed:  https://dunghuynhandy.github.io/pte/idea_bank/remote_education/")
+    print("University:   https://dunghuynhandy.github.io/pte/idea_bank/university_education/")
 
 
 if __name__ == "__main__":
