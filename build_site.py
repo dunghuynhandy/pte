@@ -39,6 +39,10 @@ def build_index() -> None:
         <h3>Homework</h3>
         <p>Practice · discipline · exams vs stress · balance · inequality · busy work</p>
       </a>
+      <a class="card" href="idea_bank/free_university/index.html">
+        <h3>Free University</h3>
+        <p>Access · debt · public good vs cost · quality · taxpayers · responsibility</p>
+      </a>
     </div>
   </section>
 """
@@ -95,6 +99,7 @@ def main() -> None:
     print("Remote Ed:  https://dunghuynhandy.github.io/pte/idea_bank/remote_education/")
     print("University:   https://dunghuynhandy.github.io/pte/idea_bank/university_education/")
     print("Homework:     https://dunghuynhandy.github.io/pte/idea_bank/homework/")
+    print("Free Uni:     https://dunghuynhandy.github.io/pte/idea_bank/free_university/")
 
 
 if __name__ == "__main__":
