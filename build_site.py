@@ -45,6 +45,24 @@ def build_index() -> None:
       </a>
     </div>
   </section>
+
+  <section class="category-block" id="technology">
+    <h2 class="category-label">Technology</h2>
+    <div class="card-grid">
+      <a class="card" href="idea_bank/social_media/index.html">
+        <h3>Social Media</h3>
+        <p>Connection · info · business vs mental health · fake news · privacy · time</p>
+      </a>
+      <a class="card" href="idea_bank/ai_jobs/index.html">
+        <h3>AI &amp; Jobs</h3>
+        <p>Automation · cost · vulnerable sectors vs new roles · human skills · retraining</p>
+      </a>
+      <a class="card" href="idea_bank/internet_monitoring/index.html">
+        <h3>Internet Monitoring</h3>
+        <p>Security · crime · safety vs privacy · free speech · abuse · effectiveness</p>
+      </a>
+    </div>
+  </section>
 """
     html = f"""<!DOCTYPE html>
 <html lang="en">
@@ -100,6 +118,9 @@ def main() -> None:
     print("University:   https://dunghuynhandy.github.io/pte/idea_bank/university_education/")
     print("Homework:     https://dunghuynhandy.github.io/pte/idea_bank/homework/")
     print("Free Uni:     https://dunghuynhandy.github.io/pte/idea_bank/free_university/")
+    print("Social Media: https://dunghuynhandy.github.io/pte/idea_bank/social_media/")
+    print("AI Jobs:      https://dunghuynhandy.github.io/pte/idea_bank/ai_jobs/")
+    print("Monitoring:   https://dunghuynhandy.github.io/pte/idea_bank/internet_monitoring/")
 
 
 if __name__ == "__main__":
